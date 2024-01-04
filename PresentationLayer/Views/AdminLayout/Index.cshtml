@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!--head-->
+@await Component.InvokeAsync("_AdminLayoutHeadPartial")
+<!--/head-->
+
+<body>
+
+    <!--preloader-->
+    @await Component.InvokeAsync("_AdminLayoutPreloaderPartial")
+    <!--/preloader-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--navbar-->
+        @await Component.InvokeAsync("_AdminLayoutNavbarPartial")
+        <!--/navbar-->
+
+        <!--header-->
+        @await Component.InvokeAsync("_AdminLayoutHeaderPartial")
+        <!--/header-->
+
+        <!--sidebar-->
+        @await Component.InvokeAsync("_AdminLayoutSidebarPartial")
+        <!--/sidebar-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--footer-->
+        @* @await Component.InvokeAsync("_AdminLayoutFooterPartial") *@
+        @*üstteki compontent yardımı ile alttaki partial ile ekleme yapılır. görüntüde bir farklılık olmaz.*@
+        @await Html.PartialAsync("/Views/AdminLayout/FooterPartial.cshtml")
+        <!--/footer-->
+        
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+    
+    <!--script-->
+    @await Component.InvokeAsync("_AdminLayoutScriptPartial")
+    <!--/script-->
+
+</body>
+
+</html>
