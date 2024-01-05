@@ -1,8 +1,51 @@
-﻿
+﻿@model IEnumerable<EmployeeListVM>
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Employees";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>Index</h1>
-
+<table class="table table-hover zero-configuration col-12" style="font-family:'Comic Sans MS';">
+    <br />
+    <br />
+    <br />
+    <h2 class="text-center" style="color:skyblue; font-family:'Comic Sans MS'; font-size:30px;">Employees</h2>
+    <br />
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Name Surname</th>
+            <th class="text-center">Date of Recruitment</th>
+            <th class="text-center">Social Media</th>
+            <th class="text-center">Processes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td class="text-center">@employee.Title</td>
+                <td class="text-center">@employee.FullName</td>
+                <td class="text-center">@employee.CreationDate.ToShortDateString()</td>
+                <td>
+                    <p class="row justify-content-center">
+                        <a href="@employee.Facebook" class="col-4" title="@employee.FullName's facebook account "><i class="fa-brands fa-facebook fa-fade fa-xl btn-outline-info"></i></a>
+                        <a href="@employee.Twitter" class="col-4" title="@employee.FullName's account"><i class="fa-brands fa-square-x-twitter fa-flip fa-xl btn-outline-warning"></i></a>
+                        <a href="@employee.Instagram" class="col-4" title="@employee.FullName's instagram account"><i class="fa-brands fa-instagram fa-beat-fade fa-xl btn-outline-danger"></i></a>
+                    </p>
+                </td>
+                <td>
+                    <p class="row justify-content-center">
+                        <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-danger col-4" title="Delete">Delete</a>
+                        <a asp-action="Update" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-warning col-4" title="@employee.FullName informations update">Update</a>
+                        <a asp-action="IncludeProductsGetDetail" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-success col-4" title="@employee.FullName informations">Details</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<p class="btn-rounded text-center" style="background-color:skyblue;"><a asp-action="Add" class="btn btn-rounded btn-outline-primary form-control col-12" style="font-family:'Comic Sans MS'; font-size:20px; color:white" title="Add new employee">Employee Add</a></p>
