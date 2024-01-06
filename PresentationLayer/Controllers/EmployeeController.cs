@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PresentationLayer.Models.ViewModels.EmployeeVMs;
+using System.Text;
 
 namespace PresentationLayer.Controllers
 {
@@ -25,9 +26,27 @@ namespace PresentationLayer.Controllers
             return NotFound();
         }
 
-        public async Task<IActionResult> Add()
+        public IActionResult Add()
         {
-            return Ok();
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(EmployeeAddVM employeeAddVM)
+        {
+            if (ModelState.IsValid)
+            {
+                if (employeeAddVM is not null)
+                {
+                    var client = httpClientFactory.CreateClient();
+                    var jsonData = JsonConvert.SerializeObject(employeeAddVM);
+
+                    var stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                    var responseMessage = await client.PostAsync("https://localhost:7254/api/Employee/Add", stringContent);
+                    if (responseMessage.IsSuccessStatusCode) return RedirectToAction("Index");
+                }
+            }
+            return View(employeeAddVM);
         }
     }
 }
