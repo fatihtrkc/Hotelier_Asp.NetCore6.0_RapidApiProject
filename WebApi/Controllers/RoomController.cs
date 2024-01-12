@@ -21,7 +21,7 @@ namespace WebApi.Controllers
             return Ok(rooms);
         }
 
-        [HttpGet("GetBy / {roomNo}")]
+        [HttpGet("GetBy/{roomNo}")]
         public async Task<IActionResult> GetBy(string roomNo)
         {
             var room = await roomService.GetFirstOrDefaultAsync(r => r.No == roomNo);
@@ -37,7 +37,7 @@ namespace WebApi.Controllers
             return BadRequest("New room adding process is unsuccess !");
         }
 
-        [HttpDelete("Delete / {roomNo}")]
+        [HttpDelete("Delete/{roomNo}")]
         public async Task<IActionResult> Delete(string roomNo)
         {
             var room = await roomService.GetFirstOrDefaultAsync(r => r.No == roomNo);

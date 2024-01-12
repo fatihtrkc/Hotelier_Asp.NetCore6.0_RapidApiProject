@@ -38,8 +38,10 @@
                 </td>
                 <td>
                     <p class="row justify-content-center">
-                        <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-danger col-4" title="Delete">Delete</a>
-                        <a asp-action="Update" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-warning col-4" title="@employee.FullName informations update">Update</a>
+                        <a href="/Delete/@employee.Id" class="btn btn-rounded btn-outline-danger col-4" title="Delete">Delete</a>
+                        @* <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-danger col-4" title="Delete">Delete</a> *@
+                        <a href="Update/@employee.Id" class="btn btn-rounded btn-outline-warning col-4" title="@employee.FullName informations update">Update</a>
+                        @* <a asp-action="Update" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-warning col-4" title="@employee.FullName informations update">Update</a> *@
                         <a asp-action="IncludeProductsGetDetail" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-success col-4" title="@employee.FullName informations">Details</a>
                     </p>
                 </td>

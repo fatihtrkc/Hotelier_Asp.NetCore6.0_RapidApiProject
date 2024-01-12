@@ -21,7 +21,7 @@ namespace WebApi.Controllers
             return Ok(subscribes);
         }
 
-        [HttpGet("GetBy / {subscribeId}")]
+        [HttpGet("GetBy/{subscribeId}")]
         public async Task<IActionResult> GetBy(int subscribeId)
         {
             var subscribe = await subscribeService.GetFirstOrDefaultAsync(s => s.Id == subscribeId);
@@ -37,7 +37,7 @@ namespace WebApi.Controllers
             return BadRequest("New subscribe adding process is unsuccess !");
         }
 
-        [HttpDelete("Delete / {subscribeId}")]
+        [HttpDelete("Delete/{subscribeId}")]
         public async Task<IActionResult> Delete(int subscribeId)
         {
             var subscribe = await subscribeService.GetFirstOrDefaultAsync(s => s.Id == subscribeId);

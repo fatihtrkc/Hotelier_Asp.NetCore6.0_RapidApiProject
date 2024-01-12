@@ -4,6 +4,28 @@
 <script src="~/quixlab-master/js/gleek.js"></script>
 <script src="~/quixlab-master/js/styleSwitcher.js"></script>
 
+<script src="~/js/core/popper.min.js"></script>
+<script src="~/js/core/bootstrap.min.js"></script>
+<script src="~/soft-ui-dashboard-main/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="~/soft-ui-dashboard-main/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="~/js/site.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+</script>
+
 <script src="~/quixlab-master/plugins/tables/js/jquery.dataTables.min.js"></script>
 @* <script src="~/quixlab-master/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script> *@
 <script src="~/quixlab-master/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="~/js/soft-ui-dashboard.min.js?v=1.0.7"></script>

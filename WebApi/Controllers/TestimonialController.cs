@@ -23,7 +23,7 @@ namespace WebApi.Controllers
             return Ok(testimonials);
         }
 
-        [HttpGet("GetBy / {testimonialId}")]
+        [HttpGet("GetBy/{testimonialId}")]
         public async Task<IActionResult> GetBy(int testimonialId)
         {
             var testimonial = await testimonialService.GetFirstOrDefaultAsync(t => t.Id == testimonialId);
@@ -39,7 +39,7 @@ namespace WebApi.Controllers
             return BadRequest("New testimonial adding process is unsuccess !");
         }
 
-        [HttpDelete("Delete / {testimonialId}")]
+        [HttpDelete("Delete/{testimonialId}")]
         public async Task<IActionResult> Delete(int testimonialId)
         {
             var testimonial = await testimonialService.GetFirstOrDefaultAsync(t => t.Id == testimonialId);

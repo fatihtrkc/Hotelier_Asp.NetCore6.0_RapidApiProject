@@ -21,7 +21,7 @@ namespace WebApi.Controllers
             return Ok(services);
         }
 
-        [HttpGet("GetBy / {serviceName}")]
+        [HttpGet("GetBy/{serviceName}")]
         public async Task<IActionResult> GetBy(string serviceName)
         {
             var service = await serviceService.GetFirstOrDefaultAsync(s => s.Name == serviceName);
@@ -37,7 +37,7 @@ namespace WebApi.Controllers
             return BadRequest("New Service adding process is unsuccess !");
         }
 
-        [HttpDelete("Delete / {serviceName}")]
+        [HttpDelete("Delete/{serviceName}")]
         public async Task<IActionResult> Delete(string serviceName)
         {
             var service = await serviceService.GetFirstOrDefaultAsync(s => s.Name == serviceName);

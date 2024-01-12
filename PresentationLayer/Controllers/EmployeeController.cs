@@ -48,5 +48,36 @@ namespace PresentationLayer.Controllers
             }
             return View(employeeAddVM);
         }
+
+        [HttpGet("Delete/{employeeId}")]
+        public async Task<IActionResult> Delete(int employeeId)
+        {
+            var client = httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync($"https://localhost:7254/api/Employee/Delete/{employeeId}");
+            if (responseMessage.IsSuccessStatusCode) return RedirectToAction("Index");
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet("Update/{employeeId}")]
+        public async Task<IActionResult> Update(int employeeId)
+        {
+            var client = httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7254/api/Employee/GetBy/{employeeId}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var employeeUpdateVM = JsonConvert.DeserializeObject<EmployeeUpdateVM>(jsonData);
+                return View(employeeUpdateVM);
+            }
+            //return NotFound();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(EmployeeUpdateVM employeeUpdateVM)
+        {
+            var client = httpClientFactory.CreateClient();
+            return View();
+        }
     }
 }

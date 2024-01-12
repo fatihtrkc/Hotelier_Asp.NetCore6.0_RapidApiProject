@@ -21,8 +21,8 @@ namespace WebApi.Controllers
             return Ok(employees);
         }
 
-        [HttpGet("GetBy / {employeeId}")]
-        public async Task<IActionResult> GetBy(int employeeId)
+        [HttpGet("GetBy/{employeeId}")]
+        public async Task<IActionResult> GetBy([FromBody] int employeeId)
         {
             var employee = await employeeService.GetFirstOrDefaultAsync(e => e.Id == employeeId);
             if (employee is not null) return Ok(employee);
@@ -37,7 +37,7 @@ namespace WebApi.Controllers
             return BadRequest("New employee adding process is unsuccess !");
         }
 
-        [HttpDelete("{employeeId}")]
+        [HttpDelete("Delete/{employeeId}")]
         public async Task<IActionResult> Delete(int employeeId)
         {
             var employee = await employeeService.GetFirstOrDefaultAsync(e => e.Id == employeeId);
@@ -49,7 +49,7 @@ namespace WebApi.Controllers
             return BadRequest("Employee is not deleted !");
         }
 
-        [HttpPut]
+        [HttpPut("Update")]
         public async Task<IActionResult> Update(Employee employee)
         {
             bool isUpdated = await employeeService.UpdateAsync(employee);
