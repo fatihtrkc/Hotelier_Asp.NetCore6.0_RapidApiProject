@@ -53,8 +53,7 @@ namespace BusinessLayer.Services.Concrete
         {
             try
             {
-                var service = await serviceRepository.GetFirstOrDefaultAsync(s => s.Name == serviceUpdateDto.Name);
-                service = mapper.Map<Service>(serviceUpdateDto);
+                var service = mapper.Map<Service>(serviceUpdateDto);
                 bool isUpdated = await serviceRepository.UpdateAsync(service);
                 if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;

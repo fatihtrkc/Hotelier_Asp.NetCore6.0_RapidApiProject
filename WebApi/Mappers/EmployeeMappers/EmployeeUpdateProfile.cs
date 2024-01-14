@@ -8,7 +8,7 @@ namespace WebApi.Mappers.EmployeeMappers
     {
         public EmployeeUpdateProfile()
         {
-            CreateMap<Employee, EmployeeUpdateDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
+            CreateMap<Employee, EmployeeUpdateDto>().ReverseMap().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
             CreateMap<Employee, EmployeeUpdateDto>().ReverseMap().ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title));
             CreateMap<Employee, EmployeeUpdateDto>().ReverseMap().ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName));
             CreateMap<Employee, EmployeeUpdateDto>().ReverseMap().ForMember(dest => dest.Facebook, opt => opt.MapFrom(src => src.Facebook));

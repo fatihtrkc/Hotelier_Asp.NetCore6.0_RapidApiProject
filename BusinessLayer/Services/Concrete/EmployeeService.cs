@@ -53,8 +53,7 @@ namespace BusinessLayer.Services.Concrete
         {
             try
             {
-                var employee = await employeeRepository.GetFirstOrDefaultAsync(e => e.Id == employeeUpdateDto.Id);
-                employee = mapper.Map<Employee>(employeeUpdateDto);
+                var employee = mapper.Map<Employee>(employeeUpdateDto);
                 bool isUpdated = await employeeRepository.UpdateAsync(employee);
                 if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;

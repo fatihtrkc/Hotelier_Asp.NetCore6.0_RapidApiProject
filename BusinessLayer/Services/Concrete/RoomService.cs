@@ -53,8 +53,7 @@ namespace BusinessLayer.Services.Concrete
         {
             try
             {
-                var room = await roomRepository.GetFirstOrDefaultAsync(r => r.No == roomUpdateDto.No);
-                room = mapper.Map<Room>(roomUpdateDto);
+                var room = mapper.Map<Room>(roomUpdateDto);
                 bool isUpdated = await roomRepository.UpdateAsync(room);
                 if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;

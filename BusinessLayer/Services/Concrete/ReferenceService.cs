@@ -53,8 +53,7 @@ namespace BusinessLayer.Services.Concrete
         {
             try
             {
-                var reference = await referenceRepository.GetFirstOrDefaultAsync(r => r.Id == referenceUpdateDto.Id);
-                reference = mapper.Map<Testimonial>(referenceUpdateDto);
+                var reference = mapper.Map<Testimonial>(referenceUpdateDto);
                 bool isUpdated = await referenceRepository.UpdateAsync(reference);
                 if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;

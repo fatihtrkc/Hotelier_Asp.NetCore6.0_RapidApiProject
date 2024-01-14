@@ -53,8 +53,7 @@ namespace BusinessLayer.Services.Concrete
         {
             try
             {
-                var subscribe = await subscribeRepository.GetFirstOrDefaultAsync(s => s.Id == subscribeUpdateDto.Id);
-                subscribe = mapper.Map<Subscribe>(subscribeUpdateDto);
+                var subscribe = mapper.Map<Subscribe>(subscribeUpdateDto);
                 bool isUpdated = await subscribeRepository.UpdateAsync(subscribe);
                 if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;
