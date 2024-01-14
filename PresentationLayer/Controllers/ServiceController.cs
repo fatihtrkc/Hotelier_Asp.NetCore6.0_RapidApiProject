@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using PresentationLayer.Models.ViewModels.EmployeeVMs;
 using PresentationLayer.Models.ViewModels.ServiceVMs;
 using System.Text;
 
@@ -27,12 +26,12 @@ namespace PresentationLayer.Controllers
             return RedirectToAction("Index", "NotFound");
         }
 
-        [HttpGet("Service/Detail/{serviceId}")]
-        public async Task<IActionResult> Detail(int serviceId)
+        [HttpGet("Service/Detail/{serviceName}")]
+        public async Task<IActionResult> Detail(string serviceName)
         //public async Task<IActionResult> Detail(int id)
         {
             var client = httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:7254/api/Service/GetBy/{serviceId}");
+            var responseMessage = await client.GetAsync($"https://localhost:7254/api/Service/GetBy/{serviceName}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -48,7 +47,7 @@ namespace PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] ServiceAddVM serviceAddVM)
+        public async Task<IActionResult> Add(ServiceAddVM serviceAddVM)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +88,7 @@ namespace PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update([FromBody] ServiceUpdateVM serviceUpdateVM)
+        public async Task<IActionResult> Update(ServiceUpdateVM serviceUpdateVM)
         {
             if (ModelState.IsValid)
             {

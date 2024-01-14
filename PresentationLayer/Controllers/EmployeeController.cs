@@ -47,7 +47,7 @@ namespace PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] EmployeeAddVM employeeAddVM)
+        public async Task<IActionResult> Add(EmployeeAddVM employeeAddVM)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update([FromBody] EmployeeUpdateVM employeeUpdateVM)
+        public async Task<IActionResult> Update(EmployeeUpdateVM employeeUpdateVM)
         {
             if (ModelState.IsValid)
             {
