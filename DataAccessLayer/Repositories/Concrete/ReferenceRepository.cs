@@ -4,11 +4,11 @@ using EntityLayer.Concrete;
 
 namespace DataAccessLayer.Repositories.Concrete
 {
-    public class TestimonialRepository : GenericRepository<Testimonial>, ITestimonialRepository
+    public class ReferenceRepository : GenericRepository<Testimonial>, IReferenceRepository
     {
         private readonly HotelierAppContext db;
         //private readonly ILogger logger;
-        public TestimonialRepository(HotelierAppContext db) : base(db)
+        public ReferenceRepository(HotelierAppContext db) : base(db)
         {
             this.db = db;
             //this.logger = logger;

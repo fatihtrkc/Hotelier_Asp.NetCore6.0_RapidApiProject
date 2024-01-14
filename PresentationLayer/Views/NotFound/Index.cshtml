@@ -1,0 +1,115 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en"
+      class="light-style"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="../assets/"
+      data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/img/favicon.png">
+    <title>
+        Hotelier Rapid Api
+    </title>
+
+    <!-- Favicon -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="~/css/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="~/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="~/css/demoNotFound.css" />
+
+    <!-- Page CSS -->
+    <!-- Page -->
+    <link rel="stylesheet" href="~/css/page-misc.css" />
+    <!-- Helpers -->
+    <script src="~/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="~/js/config.js"></script>
+
+    <style>
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            z-index: 999
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- loader -->
+    <div id="loading">
+        <img src="~/img/808.gif" alt="Yükleniyor..." />
+    </div>
+
+    <script>
+        window.addEventListener('load', fg_load)
+
+        function fg_load() {
+            document.getElementById('loading').style.display = 'none'
+        }
+    </script>
+    <!-- loader -->
+    <!-- Content -->
+    <!-- Error -->
+    <div class="container">
+        <div class="misc-wrapper">
+            <h2 class="mb-1" style="font-family:'Comic Sans MS'; font-size:50px">Page Not Found&nbsp;&nbsp;:(</h2>
+            <br />
+            <p class="mb-3" style="font-family:'Comic Sans MS'; font-size:25px">Oops! 😖 The requested URL was not found on this server.</p>
+            <div class="mt-4">
+                <img src="~/img/page-misc-error-light.png"
+                     alt="page-misc-error-light"
+                     width="550"
+                     class="img-fluid"
+                     data-app-dark-img="illustrations/page-misc-error-dark.png"
+                     data-app-light-img="illustrations/page-misc-error-light.png" />
+            </div>
+        </div>
+    </div>
+    <!-- /Error -->
+    <!-- / Content -->
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/popper.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+
+    <script src="~/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <!-- Main JS -->
+    <script src="~/js/main.js"></script>
+
+    <!-- Page JS -->
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

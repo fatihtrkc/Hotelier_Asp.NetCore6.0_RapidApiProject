@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Services.Abstract;
+using DtoLayer.EmployeeDtos;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +23,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("GetBy/{employeeId}")]
-        public async Task<IActionResult> GetBy([FromBody] int employeeId)
+        public async Task<IActionResult> GetBy(int employeeId)
         {
             var employee = await employeeService.GetFirstOrDefaultAsync(e => e.Id == employeeId);
             if (employee is not null) return Ok(employee);
@@ -30,11 +31,15 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("Add")]
-        public async Task<IActionResult> Add(Employee employee)
+        public async Task<IActionResult> Add(EmployeeAddDto employeeAddDto)
         {
-            bool isAdded = await employeeService.AddAsync(employee);
-            if (isAdded) return Ok($"{employee.FullName} is {employee.Title} was added successfully !");
-            return BadRequest("New employee adding process is unsuccess !");
+            if (ModelState.IsValid)
+            {
+                bool isAdded = await employeeService.AddAsync(employeeAddDto);
+                if (isAdded) return Ok($"{employeeAddDto.FullName} is {employeeAddDto.Title} was added successfully !");
+                return BadRequest("New employee adding process is unsuccess !");
+            }
+            return BadRequest();
         }
 
         [HttpDelete("Delete/{employeeId}")]
@@ -50,11 +55,15 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(Employee employee)
+        public async Task<IActionResult> Update(EmployeeUpdateDto employeeUpdateDto)
         {
-            bool isUpdated = await employeeService.UpdateAsync(employee);
-            if (isUpdated) return Ok($"{employee.FullName} is {employee.Title} was updated successfully !");
-            return BadRequest("Employee is not updated !");
+            if (ModelState.IsValid)
+            {
+                bool isUpdated = await employeeService.UpdateAsync(employeeUpdateDto);
+                if (isUpdated) return Ok($"{employeeUpdateDto.FullName} is {employeeUpdateDto.Title} was updated successfully !");
+                return BadRequest("Employee is not updated !");
+            }
+            return BadRequest();
         }
     }
 }

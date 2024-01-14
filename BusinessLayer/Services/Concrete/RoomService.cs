@@ -1,6 +1,8 @@
-﻿using BusinessLayer.Services.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Services.Abstract;
 using DataAccessLayer.Repositories.Abstract;
 using DataAccessLayer.UnitOfWork.Abstract;
+using DtoLayer.RoomDtos;
 using EntityLayer.Concrete;
 using System.Linq.Expressions;
 
@@ -10,17 +12,20 @@ namespace BusinessLayer.Services.Concrete
     {
         private readonly IRoomRepository roomRepository;
         private readonly IUnitOfWork unitOfWork;
-        public RoomService(IRoomRepository roomRepository, IUnitOfWork unitOfWork)
+        private readonly IMapper mapper;
+        public RoomService(IRoomRepository roomRepository, IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.roomRepository = roomRepository;
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
-        public async Task<bool> AddAsync(Room entity)
+        public async Task<bool> AddAsync(RoomAddDto roomAddDto)
         {
             try
             {
-                bool isAdded = await roomRepository.AddAsync(entity);
+                var room = mapper.Map<Room>(roomAddDto);
+                bool isAdded = await roomRepository.AddAsync(room);
                 if (isAdded) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
@@ -44,11 +49,13 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> UpdateAsync(Room entity)
+        public async Task<bool> UpdateAsync(RoomUpdateDto roomUpdateDto)
         {
             try
             {
-                bool isUpdated = await roomRepository.UpdateAsync(entity);
+                var room = await roomRepository.GetFirstOrDefaultAsync(r => r.No == roomUpdateDto.No);
+                room = mapper.Map<Room>(roomUpdateDto);
+                bool isUpdated = await roomRepository.UpdateAsync(room);
                 if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;
             }

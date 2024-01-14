@@ -11,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
 var connectionString = builder.Configuration.GetConnectionString("conn");
 builder.Services.AddDbContext<HotelierAppContext>(options => options.UseSqlServer(connectionString));
 
@@ -28,8 +30,8 @@ builder.Services.AddTransient<IServiceService, ServiceService>();
 builder.Services.AddTransient<ISubscribeRepository, SubscribeRepository>();
 builder.Services.AddTransient<ISubscribeService, SubscribeService>();
 
-builder.Services.AddTransient<ITestimonialRepository, TestimonialRepository>();
-builder.Services.AddTransient<ITestimonialService, TestimonialService>();
+builder.Services.AddTransient<IReferenceRepository, ReferenceRepository>();
+builder.Services.AddTransient<IReferenceService, ReferenceService>();
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 

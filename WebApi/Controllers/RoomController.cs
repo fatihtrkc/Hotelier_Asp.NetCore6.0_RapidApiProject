@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Services.Abstract;
+using DtoLayer.RoomDtos;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,11 +31,15 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("Add")]
-        public async Task<IActionResult> Add(Room room)
+        public async Task<IActionResult> Add(RoomAddDto roomAddDto)
         {
-            bool isAdded = await roomService.AddAsync(room);
-            if (isAdded) return Ok($"{room.No} was added successfully !");
-            return BadRequest("New room adding process is unsuccess !");
+            if (ModelState.IsValid)
+            {
+                bool isAdded = await roomService.AddAsync(roomAddDto);
+                if (isAdded) return Ok($"{roomAddDto.No} was added successfully !");
+                return BadRequest("New room adding process is unsuccess !");
+            }
+            return BadRequest();
         }
 
         [HttpDelete("Delete/{roomNo}")]
@@ -50,11 +55,15 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(Room room)
+        public async Task<IActionResult> Update(RoomUpdateDto roomUpdateDto)
         {
-            bool isUpdated = await roomService.UpdateAsync(room);
-            if (isUpdated) return Ok($"{room.No} was updated successfully !");
-            return BadRequest("Room is not updated !");
+            if (ModelState.IsValid)
+            {
+                bool isUpdated = await roomService.UpdateAsync(roomUpdateDto);
+                if (isUpdated) return Ok($"{roomUpdateDto.No} was updated successfully !");
+                return BadRequest("Room is not updated !");
+            }
+            return BadRequest();
         }
     }
 }

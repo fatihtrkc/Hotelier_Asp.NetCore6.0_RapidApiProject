@@ -1,0 +1,106 @@
+﻿@model EmployeeDetailVM
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-8">
+
+        <h6 class="mb-3" style="font-family:'Comic Sans MS'; font-size:20px; font-weight:bold; color:indigo;">Employee Detail</h6>
+
+    </div>
+
+</div>
+<hr />
+
+<div class="form-group row" style="font-family:'Comic Sans MS'; text-transform:capitalize;">
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="Id" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Id</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.Id</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        @* <div class="col-lg-6">
+        <label asp-for="Photo" class="control-label" style="text-align:start; font-size:16px">Photo <span class="text-danger">*</span></label>
+        <input type="file" asp-for="Photo" class="form-control" accept=".jpg,.png,.jpeg" id="photo" />
+        </div> *@
+        <div class="col-4">
+            <label asp-for="Title" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Title</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.Title</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="FullName" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Full Name</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.FullName</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="CreationDate" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Job Start Date</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.CreationDate</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="Facebook" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Facebook</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;"><i class="fa-brands fa-facebook fa-fade fa-xl btn-outline-info"></i>&nbsp;&nbsp;@Model.Facebook</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="Twitter" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Twitter</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;"><i class="fa-brands fa-square-x-twitter fa-flip fa-xl btn-outline-warning"></i>&nbsp;&nbsp;@Model.Twitter</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="Instagram" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Instagram</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;"><i class="fa-brands fa-instagram fa-beat-fade fa-xl btn-outline-danger"></i>&nbsp;&nbsp;@Model.Instagram</label>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="form-group row" style="font-family:'Comic Sans MS'; text-transform:capitalize;">
+    <label class="control-label">&nbsp;&nbsp;<a asp-action="Index" style="font-size:16px; font-weight:bold; color:indigo; text-decoration:underline">Back to Employees</a></label>
+</div>

@@ -20,10 +20,25 @@ namespace PresentationLayer.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var employees = JsonConvert.DeserializeObject<IEnumerable<EmployeeListVM>>(jsonData);
-                return View(employees);
+                var employeeListVMs = JsonConvert.DeserializeObject<IEnumerable<EmployeeListVM>>(jsonData);
+                return View(employeeListVMs);
             }
-            return NotFound();
+            return RedirectToAction("Index", "NotFound");
+        }
+
+        [HttpGet("Employee/Detail/{employeeId}")]
+        public async Task<IActionResult> Detail(int employeeId)
+        //public async Task<IActionResult> Detail(int id)
+        {
+            var client = httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7254/api/Employee/GetBy/{employeeId}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var employeeDetailVM = JsonConvert.DeserializeObject<EmployeeDetailVM>(jsonData);
+                return View(employeeDetailVM);
+            }
+            return RedirectToAction("Index", "NotFound");
         }
 
         public IActionResult Add()
@@ -32,7 +47,7 @@ namespace PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(EmployeeAddVM employeeAddVM)
+        public async Task<IActionResult> Add([FromBody] EmployeeAddVM employeeAddVM)
         {
             if (ModelState.IsValid)
             {
@@ -49,17 +64,19 @@ namespace PresentationLayer.Controllers
             return View(employeeAddVM);
         }
 
-        [HttpGet("Delete/{employeeId}")]
+        [HttpGet("Employee/Delete/{employeeId}")]
         public async Task<IActionResult> Delete(int employeeId)
+        //public async Task<IActionResult> Delete(int id)
         {
             var client = httpClientFactory.CreateClient();
             var responseMessage = await client.DeleteAsync($"https://localhost:7254/api/Employee/Delete/{employeeId}");
             if (responseMessage.IsSuccessStatusCode) return RedirectToAction("Index");
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "NotFound");
         }
 
-        [HttpGet("Update/{employeeId}")]
+        [HttpGet("Employee/Update/{employeeId}")]
         public async Task<IActionResult> Update(int employeeId)
+        //public async Task<IActionResult> Update(int id)
         {
             var client = httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7254/api/Employee/GetBy/{employeeId}");
@@ -69,15 +86,26 @@ namespace PresentationLayer.Controllers
                 var employeeUpdateVM = JsonConvert.DeserializeObject<EmployeeUpdateVM>(jsonData);
                 return View(employeeUpdateVM);
             }
-            //return NotFound();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "NotFound");
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(EmployeeUpdateVM employeeUpdateVM)
+        public async Task<IActionResult> Update([FromBody] EmployeeUpdateVM employeeUpdateVM)
         {
-            var client = httpClientFactory.CreateClient();
-            return View();
+            if (ModelState.IsValid)
+            {
+                if (employeeUpdateVM is not null)
+                {
+                    var client = httpClientFactory.CreateClient();
+                    var jsonData = JsonConvert.SerializeObject(employeeUpdateVM);
+
+                    var stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                    var responseMessage = await client.PutAsync("https://localhost:7254/api/Employee/Update", stringContent);
+                    if (responseMessage.IsSuccessStatusCode) return RedirectToAction("Index");
+                    return RedirectToAction("Index", "NotFound");
+                }
+            }
+            return View(employeeUpdateVM);
         }
     }
 }

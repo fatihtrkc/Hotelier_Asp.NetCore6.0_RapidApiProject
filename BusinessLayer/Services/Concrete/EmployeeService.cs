@@ -1,6 +1,8 @@
-﻿using BusinessLayer.Services.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Services.Abstract;
 using DataAccessLayer.Repositories.Abstract;
 using DataAccessLayer.UnitOfWork.Abstract;
+using DtoLayer.EmployeeDtos;
 using EntityLayer.Concrete;
 using System.Linq.Expressions;
 
@@ -10,17 +12,20 @@ namespace BusinessLayer.Services.Concrete
     {
         private readonly IEmployeeRepository employeeRepository;
         private readonly IUnitOfWork unitOfWork;
-        public EmployeeService(IEmployeeRepository employeeRepository, IUnitOfWork unitOfWork)
+        private readonly IMapper mapper;
+        public EmployeeService(IEmployeeRepository employeeRepository, IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.employeeRepository = employeeRepository;
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
-        public async Task<bool> AddAsync(Employee entity)
+        public async Task<bool> AddAsync(EmployeeAddDto employeeAddDto)
         {
             try
             {
-                bool isAdded = await employeeRepository.AddAsync(entity);
+                var employee = mapper.Map<Employee>(employeeAddDto);
+                bool isAdded = await employeeRepository.AddAsync(employee);
                 if (isAdded) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
@@ -44,11 +49,13 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> UpdateAsync(Employee entity)
+        public async Task<bool> UpdateAsync(EmployeeUpdateDto employeeUpdateDto)
         {
             try
             {
-                bool isUpdated = await employeeRepository.UpdateAsync(entity);
+                var employee = await employeeRepository.GetFirstOrDefaultAsync(e => e.Id == employeeUpdateDto.Id);
+                employee = mapper.Map<Employee>(employeeUpdateDto);
+                bool isUpdated = await employeeRepository.UpdateAsync(employee);
                 if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;
             }

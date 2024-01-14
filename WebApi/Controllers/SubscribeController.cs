@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Services.Abstract;
+using DtoLayer.SubscribeDtos;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,11 +31,15 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("Add")]
-        public async Task<IActionResult> Add(Subscribe subscribe)
+        public async Task<IActionResult> Add(SubscribeAddDto subscribeAddDto)
         {
-            bool isAdded = await subscribeService.AddAsync(subscribe);
-            if (isAdded) return Ok($"{subscribe.Id} is {subscribe.Email} was added successfully !");
-            return BadRequest("New subscribe adding process is unsuccess !");
+            if (ModelState.IsValid)
+            {
+                bool isAdded = await subscribeService.AddAsync(subscribeAddDto);
+                if (isAdded) return Ok($"{subscribeAddDto.Email} was added successfully !");
+                return BadRequest("New subscribe adding process is unsuccess !");
+            }
+            return BadRequest();
         }
 
         [HttpDelete("Delete/{subscribeId}")]
@@ -50,11 +55,15 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(Subscribe subscribe)
+        public async Task<IActionResult> Update(SubscribeUpdateDto subscribeUpdateDto)
         {
-            bool isUpdated = await subscribeService.UpdateAsync(subscribe);
-            if (isUpdated) return Ok($"{subscribe.Id} is {subscribe.Email} was updated successfully !");
-            return BadRequest("Subscribe is not updated !");
+            if (ModelState.IsValid)
+            {
+                bool isUpdated = await subscribeService.UpdateAsync(subscribeUpdateDto);
+                if (isUpdated) return Ok($"{subscribeUpdateDto.Id} is {subscribeUpdateDto.Email} was updated successfully !");
+                return BadRequest("Subscribe is not updated !");
+            }
+            return BadRequest();
         }
     }
 }

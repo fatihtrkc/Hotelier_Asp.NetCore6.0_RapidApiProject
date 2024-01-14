@@ -1,26 +1,31 @@
-﻿using BusinessLayer.Services.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Services.Abstract;
 using DataAccessLayer.Repositories.Abstract;
 using DataAccessLayer.UnitOfWork.Abstract;
+using DtoLayer.ReferenceDtos;
 using EntityLayer.Concrete;
 using System.Linq.Expressions;
 
 namespace BusinessLayer.Services.Concrete
 {
-    public class TestimonialService : ITestimonialService
+    public class ReferenceService : IReferenceService
     {
-        private readonly ITestimonialRepository testimonialRepository;
+        private readonly IReferenceRepository referenceRepository;
         private readonly IUnitOfWork unitOfWork;
-        public TestimonialService(ITestimonialRepository testimonialRepository, IUnitOfWork unitOfWork)
+        private readonly IMapper mapper;
+        public ReferenceService(IReferenceRepository referenceRepository, IUnitOfWork unitOfWork, IMapper mapper)
         {
-            this.testimonialRepository = testimonialRepository;
+            this.referenceRepository = referenceRepository;
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
-        public async Task<bool> AddAsync(Testimonial entity)
+        public async Task<bool> AddAsync(ReferenceAddDto referenceAddDto)
         {
             try
             {
-                bool isAdded = await testimonialRepository.AddAsync(entity);
+                var reference = mapper.Map<Testimonial>(referenceAddDto);
+                bool isAdded = await referenceRepository.AddAsync(reference);
                 if (isAdded) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
@@ -30,11 +35,11 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> DeleteAsync(Testimonial entity)
+        public async Task<bool> DeleteAsync(Testimonial reference)
         {
             try
             {
-                bool isDeleted = await testimonialRepository.DeleteAsync(entity);
+                bool isDeleted = await referenceRepository.DeleteAsync(reference);
                 if (isDeleted) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
@@ -44,11 +49,13 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> UpdateAsync(Testimonial entity)
+        public async Task<bool> UpdateAsync(ReferenceUpdateDto referenceUpdateDto)
         {
             try
             {
-                bool isUpdated = await testimonialRepository.UpdateAsync(entity);
+                var reference = await referenceRepository.GetFirstOrDefaultAsync(r => r.Id == referenceUpdateDto.Id);
+                reference = mapper.Map<Testimonial>(referenceUpdateDto);
+                bool isUpdated = await referenceRepository.UpdateAsync(reference);
                 if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
@@ -62,7 +69,7 @@ namespace BusinessLayer.Services.Concrete
         {
             try
             {
-                return await testimonialRepository.GetFirstOrDefaultAsync(expression);
+                return await referenceRepository.GetFirstOrDefaultAsync(expression);
             }
             catch
             {
@@ -74,7 +81,7 @@ namespace BusinessLayer.Services.Concrete
         {
             try
             {
-                return await testimonialRepository.GetAllWhereAsync(expression);
+                return await referenceRepository.GetAllWhereAsync(expression);
             }
             catch
             {
@@ -86,7 +93,7 @@ namespace BusinessLayer.Services.Concrete
         {
             try
             {
-                return await testimonialRepository.GetAllAsync();
+                return await referenceRepository.GetAllAsync();
             }
             catch
             {

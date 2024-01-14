@@ -2,7 +2,7 @@
 
 namespace DataAccessLayer.Repositories.Abstract
 {
-    public interface ITestimonialRepository : IGenericRepository<Testimonial>
+    public interface IReferenceRepository : IGenericRepository<Testimonial>
     {
     }
 }

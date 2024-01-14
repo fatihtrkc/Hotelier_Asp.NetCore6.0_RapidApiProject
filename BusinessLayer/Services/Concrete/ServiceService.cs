@@ -1,6 +1,8 @@
-﻿using BusinessLayer.Services.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Services.Abstract;
 using DataAccessLayer.Repositories.Abstract;
 using DataAccessLayer.UnitOfWork.Abstract;
+using DtoLayer.ServiceDtos;
 using EntityLayer.Concrete;
 using System.Linq.Expressions;
 
@@ -10,17 +12,20 @@ namespace BusinessLayer.Services.Concrete
     {
         private readonly IServiceRepository serviceRepository;
         private readonly IUnitOfWork unitOfWork;
-        public ServiceService(IServiceRepository serviceRepository, IUnitOfWork unitOfWork)
+        private readonly IMapper mapper;
+        public ServiceService(IServiceRepository serviceRepository, IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.serviceRepository = serviceRepository;
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
-        public async Task<bool> AddAsync(Service entity)
+        public async Task<bool> AddAsync(ServiceAddDto serviceAddDto)
         {
             try
             {
-                bool isAdded = await serviceRepository.AddAsync(entity);
+                var service = mapper.Map<Service>(serviceAddDto);
+                bool isAdded = await serviceRepository.AddAsync(service);
                 if (isAdded) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
@@ -44,11 +49,13 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> UpdateAsync(Service entity)
+        public async Task<bool> UpdateAsync(ServiceUpdateDto serviceUpdateDto)
         {
             try
             {
-                bool isUpdated = await serviceRepository.UpdateAsync(entity);
+                var service = await serviceRepository.GetFirstOrDefaultAsync(s => s.Name == serviceUpdateDto.Name);
+                service = mapper.Map<Service>(serviceUpdateDto);
+                bool isUpdated = await serviceRepository.UpdateAsync(service);
                 if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;
             }

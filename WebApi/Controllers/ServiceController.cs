@@ -1,5 +1,5 @@
 ﻿using BusinessLayer.Services.Abstract;
-using EntityLayer.Concrete;
+using DtoLayer.ServiceDtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -30,11 +30,15 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("Add")]
-        public async Task<IActionResult> Add(Service service)
+        public async Task<IActionResult> Add(ServiceAddDto serviceAddDto)
         {
-            bool isAdded = await serviceService.AddAsync(service);
-            if (isAdded) return Ok($"{service.Name} was added successfully !");
-            return BadRequest("New Service adding process is unsuccess !");
+            if (ModelState.IsValid)
+            {
+                bool isAdded = await serviceService.AddAsync(serviceAddDto);
+                if (isAdded) return Ok($"{serviceAddDto.Name} was added successfully !");
+                return BadRequest("New Service adding process is unsuccess !");
+            }
+            return BadRequest();
         }
 
         [HttpDelete("Delete/{serviceName}")]
@@ -50,11 +54,15 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(Service service)
+        public async Task<IActionResult> Update(ServiceUpdateDto serviceUpdateDto)
         {
-            bool isUpdated = await serviceService.UpdateAsync(service);
-            if (isUpdated) return Ok($"{service.Name} was updated successfully !");
-            return BadRequest("Service is not updated !");
+            if (ModelState.IsValid)
+            {
+                bool isUpdated = await serviceService.UpdateAsync(serviceUpdateDto);
+                if (isUpdated) return Ok($"{serviceUpdateDto.Name} was updated successfully !");
+                return BadRequest("Service is not updated !");
+            }
+            return BadRequest();
         }
     }
 }

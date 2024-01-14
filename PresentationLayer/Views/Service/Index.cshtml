@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ServiceListVM>
+
+@{
+    ViewData["Title"] = "Services";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<table class="table table-hover zero-configuration col-12" style="font-family:'Comic Sans MS';">
+    <br />
+    <br />
+    <br />
+    <h2 class="text-center" style="color:skyblue; font-family:'Comic Sans MS'; font-size:30px;">Services</h2>
+    <br />
+    <thead>
+        <tr>
+            <th>Icon</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Date</th>
+            @* <th class="text-center">Processes</th> *@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>@service.Icon</td>
+                <td class="text-center">@service.Name</td>
+                <td class="text-center">@service.CreationDate.ToShortDateString()</td>
+                <td>
+                    <p class="row justify-content-center">
+                        <a href="~/Service/Delete/@service.Name" class="btn btn-rounded btn-outline-danger col-4" title="Delete">Delete</a>
+                        @* <a asp-action="Delete" asp-route-serviceName="@service.Name" class="btn btn-rounded btn-outline-danger col-4" title="Delete">Delete</a> *@
+                        <a href="~/Service/Update/@service.Name" class="btn btn-rounded btn-outline-warning col-4" title="@service.Name informations update">Update</a>
+                        @* <a asp-action="Update" asp-route-serviceName="@service.Name" class="btn btn-rounded btn-outline-warning col-4" title="@service.Name informations update">Update</a> *@
+                        <a href="~/Service/Detail/@service.Name" class="btn btn-rounded btn-outline-success col-4" title="@service.Name informations">Details</a>
+                        @* <a asp-action="Detail" asp-route-serviceName="@service.Name" class="btn btn-rounded btn-outline-success col-4" title="@service.Name informations">Details</a> *@
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<p class="btn-rounded text-center" style="background-color:skyblue;"><a asp-action="Add" class="btn btn-rounded btn-outline-primary form-control col-12" style="font-family:'Comic Sans MS'; font-size:20px; color:white" title="Add new employee">Service Add</a></p>
