@@ -4,7 +4,7 @@ using EntityLayer.Concrete;
 
 namespace DataAccessLayer.Repositories.Concrete
 {
-    public class ReferenceRepository : GenericRepository<Testimonial>, IReferenceRepository
+    public class ReferenceRepository : GenericRepository<Reference>, IReferenceRepository
     {
         private readonly HotelierAppContext db;
         //private readonly ILogger logger;

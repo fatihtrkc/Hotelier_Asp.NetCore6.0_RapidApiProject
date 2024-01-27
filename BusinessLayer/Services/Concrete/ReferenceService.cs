@@ -24,7 +24,7 @@ namespace BusinessLayer.Services.Concrete
         {
             try
             {
-                var reference = mapper.Map<Testimonial>(referenceAddDto);
+                var reference = mapper.Map<Reference>(referenceAddDto);
                 bool isAdded = await referenceRepository.AddAsync(reference);
                 if (isAdded) return await unitOfWork.SaveChangesAsync();
                 return false;
@@ -35,7 +35,7 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> DeleteAsync(Testimonial reference)
+        public async Task<bool> DeleteAsync(Reference reference)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace BusinessLayer.Services.Concrete
         {
             try
             {
-                var reference = mapper.Map<Testimonial>(referenceUpdateDto);
+                var reference = mapper.Map<Reference>(referenceUpdateDto);
                 bool isUpdated = await referenceRepository.UpdateAsync(reference);
                 if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;
@@ -64,7 +64,7 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<Testimonial> GetFirstOrDefaultAsync(Expression<Func<Testimonial, bool>> expression)
+        public async Task<Reference> GetFirstOrDefaultAsync(Expression<Func<Reference, bool>> expression)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<IEnumerable<Testimonial>> GetAllWhereAsync(Expression<Func<Testimonial, bool>> expression)
+        public async Task<IEnumerable<Reference>> GetAllWhereAsync(Expression<Func<Reference, bool>> expression)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<IEnumerable<Testimonial>> GetAllAsync()
+        public async Task<IEnumerable<Reference>> GetAllAsync()
         {
             try
             {

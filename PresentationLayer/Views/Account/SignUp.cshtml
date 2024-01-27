@@ -1,0 +1,238 @@
+﻿@{
+    Layout = null;
+}
+
+@model AppUserSignUpVM
+
+<!--
+=========================================================
+* Soft UI Dashboard - v1.0.7
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="~/soft-ui/assets/img/favicon.png">
+    <title>
+        Hotelier Rapid Api
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="~/soft-ui/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="~/soft-ui/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="~/soft-ui/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="~/soft-ui/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+
+<body class="" style="font-family:'Comic Sans MS', sans-serif">
+    <div class="container position-sticky z-index-sticky top-0">
+        <div class="row">
+            <div class="col-12">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+                    <div class="container-fluid pe-0">
+                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 ">
+                            Hotelier Rapid Api
+                        </a>
+                        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon mt-2">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navigation">
+                            <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7 me-lg-7">
+                                <li class="nav-item text-center">
+                                    <a asp-action="SignIn" class="nav-link me-2">
+                                        <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                                        Sign In
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <main class="main-content mt-0">
+        <section>
+            <div class="min-vh-50">
+                <div class="page-header align-items-start min-vh-50 pt-4 pb-11 m-2 border-radius-lg">
+                    <span class="mask bg-gradient-warning opacity-7"><img src="~/img/aerial-shot-aria-hotel-las-vegas.jpg" style="width:100%; height:435px" /></span>
+                </div>
+                <div class="container mt-6">
+                    <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-12 d-flex flex-column mx-auto">
+                            <div class="card z-index-0">
+                                <br />
+                                <div class="card-header pb-2 text-center bg-transparent">
+                                    <h3 class="font-weight-bolder text-warning text-gradient">Welcome !</h3>
+                                </div>
+                                <div class="card-body" style="font-family:'Comic Sans MS'">
+                                    <form method="post">
+                                        <div class="d-grid">
+                                            <div class="row">
+                                                <div class="col-12 col-xl-6 col-lg-6">
+                                                    <div class="mb-3" style="text-align:center">
+                                                        <label asp-for="Name"></label>
+                                                        <input type="text" asp-for="Name" class="form-control" placeholder="Enter your name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-xl-6 col-lg-6">
+                                                    <div class="mb-3" style="text-align:center">
+                                                        <label asp-for="Surname"></label>
+                                                        <input type="text" asp-for="Surname" class="form-control" placeholder="Enter your surname" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-grid">
+                                            <div class="row">
+                                                <div class="col-12 col-xl-6 col-lg-6">
+                                                    <div class="mb-3" style="text-align:center">
+                                                        <label asp-for="Username"></label>
+                                                        <input type="text" asp-for="Username" class="form-control" placeholder="Enter your username" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-xl-6 col-lg-6">
+                                                    <div class="mb-3" style="text-align:center">
+                                                        <label asp-for="Email"></label>
+                                                        <input type="email" asp-for="Email" class="form-control" placeholder="Enter your email" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-grid">
+                                            <div class="row">
+                                                <div class="col-12 col-xl-6 col-lg-6">
+                                                    <div class="mb-3" style="text-align:center">
+                                                        <label asp-for="Password"></label>
+                                                        <input type="password" asp-for="Password" class="form-control" placeholder="Enter your password" aria-label="Password" required>
+                                                        <a href="#" class="form-icon-right password-show-hide btn-danger" title="Hide or show password">
+                                                            <i class="mdi mdi-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-xl-6 col-lg-6">
+                                                    <div class="mb-3" style="text-align:center">
+                                                        <label asp-for="ConfirmPassword">Password Confirm</label>
+                                                        <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Enter your re-password" required>
+                                                        <a href="#" class="form-icon-right password-show-hide btn-danger" title="Hide or show password">
+                                                            <i class="mdi mdi-eye"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-grid">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="mb-3" style="text-align:center">
+                                                        <label asp-for="Address"></label>
+                                                        <input type="text" asp-for="Address" class="form-control" placeholder="Enter your address" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-check form-check-info text-left">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked required>
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                                            </label>
+                                        </div>
+                                        <div class="text-danger" asp-validation-summary="All" style="font-size:17px"></div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn bg-gradient-dark w-100 my-3 mb-2" style="text-transform:capitalize; font-weight:100; font-size:16px">Sign Up</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- End Main -->
+
+    <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-4 mt-1">
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-dribbble"></span>
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-twitter"></span>
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-instagram"></span>
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-pinterest"></span>
+                    </a>
+                    <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-github"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mx-auto text-center mt-1">
+                    <p class="mb-0 text-secondary">
+                        Copyright © <script>
+                                        document.write(new Date().getFullYear())
+                        </script> Soft by Creative Tim.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+</body>
+
+<!--   Core JS Files   -->
+<script src="~/soft-ui/assets/js/core/popper.min.js"></script>
+<script src="~/soft-ui/assets/js/core/bootstrap.min.js"></script>
+<script src="~/soft-ui/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="~/soft-ui/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+</script>
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="~/soft-ui/assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+
+</html>

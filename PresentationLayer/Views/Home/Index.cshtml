@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head Start -->
+@await Component.InvokeAsync("_HomeHeadPartial")
+<!-- Head End -->
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        @await Component.InvokeAsync("_HomeSpinnerPartial")
+        <!-- Spinner End -->
+        <!-- Header Start -->
+        @await Component.InvokeAsync("_HomeHeaderPartial")
+        <!-- Header End -->
+        <!-- Carousel Start -->
+        @await Component.InvokeAsync("_HomeCarouselPartial")
+        <!-- Carousel End -->
+        <!-- Booking Start -->
+        @await Component.InvokeAsync("_HomeBookingPartial")
+        <!-- Booking End -->
+        <!-- About Start -->
+        @await Component.InvokeAsync("_HomeAboutPartial")
+        <!-- About End -->
+        <!-- Room Start -->
+        @await Component.InvokeAsync("_HomeRoomPartial")
+        <!-- Room End -->
+        <!-- Video Start -->
+        @await Component.InvokeAsync("_HomeVideoPartial")
+        <!-- Video End -->
+        <!-- Service Start -->
+        @await Component.InvokeAsync("_HomeServicePartial")
+        <!-- Service End -->
+        <!-- Testimonial Start -->
+        @await Component.InvokeAsync("_HomeTestimonialPartial")
+        <!-- Testimonial End -->
+        <!-- Team Start -->
+        @await Component.InvokeAsync("_HomeTeamPartial")
+        <!-- Team End -->
+        <!-- Newsletter Start -->
+        @await Component.InvokeAsync("_HomeNewsletterPartial")
+        <!-- Newsletter End -->
+        <!-- Footer Start -->
+        @await Html.PartialAsync("/Views/Home/FooterPartial.cshtml")
+        <!-- Footer End -->
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    <!-- Script Start -->
+    @await Html.PartialAsync("/Views/Home/ScriptPartial.cshtml")
+    <!-- Script End -->
+</body>
+
+</html>

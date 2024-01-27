@@ -8,10 +8,10 @@ namespace WebApi.Mappers.ReferenceMappers
     {
         public ReferenceAddProfile()
         {
-            CreateMap<ReferenceAddDto, Testimonial>().ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title));
-            CreateMap<ReferenceAddDto, Testimonial>().ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName));
-            CreateMap<ReferenceAddDto, Testimonial>().ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.Image));
-            CreateMap<ReferenceAddDto, Testimonial>().ForMember(dest => dest.Comment, opt => opt.MapFrom(src => src.Comment));
+            CreateMap<ReferenceAddDto, Reference>().ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title));
+            CreateMap<ReferenceAddDto, Reference>().ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName));
+            CreateMap<ReferenceAddDto, Reference>().ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.Image));
+            CreateMap<ReferenceAddDto, Reference>().ForMember(dest => dest.Comment, opt => opt.MapFrom(src => src.Comment));
         }
     }
 }
