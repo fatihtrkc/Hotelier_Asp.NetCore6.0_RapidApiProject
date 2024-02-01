@@ -1,0 +1,19 @@
+﻿@model IEnumerable<BookingComExchangeListVM.Exchange_Rates>
+
+<table class="table table-striped table-light table-bordered table-hover text-center" style="box-sizing:border-box; border:solid 5px">
+    <thead>
+        <tr>
+            <th>Exchange</th>
+            <th>Unit Price ₺</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exchange_Rates in Model)
+        {
+            <tr>
+                <td>@exchange_Rates.currency</td>
+                <td>@exchange_Rates.exchange_rate_buy ₺</td>
+            </tr>
+        }
+    </tbody>
+</table>

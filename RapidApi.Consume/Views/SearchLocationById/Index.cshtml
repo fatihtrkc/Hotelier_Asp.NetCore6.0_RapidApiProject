@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SearchLocationByIdFindVM>
+
+<br />
+<div class="text-center text-capitalize" style="font-family:'Comic Sans MS'">
+    <h2 style="color:skyblue;">Locations</h2>
+    <br />
+    @using (Html.BeginForm("Index", "SearchLocationById", FormMethod.Post))
+    {
+        <div class="d-flex row ">
+            <div class="col-12 col-lg-6">
+                <label>Enter your city name</label>
+            </div>
+            <div class="col-12 col-lg-6">
+                <input type="text" class="form-control" name="cityName" />
+            </div>
+            <br />
+            <br />
+            <div>
+                <button type="submit" class="btn btn-outline-success form-control">Find Id</button>
+            </div>
+        </div>
+    }
+    <br />
+
+    @if (Model is not null)
+    {
+        <table class="table table-striped table-light table-bordered table-hover" style="box-sizing:border-box; border:solid 5px">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var location in Model)
+                {
+                    <tr>
+                        <th>@location.dest_id</th>
+                    </tr>
+                    break;
+                }
+            </tbody>
+        </table>
+        <br />
+        <a asp-action="Index" asp-controller="BookingByCity" class="btn btn-warning form-control">Booking Information By City Name</a>
+    }
+</div>

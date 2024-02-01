@@ -18,6 +18,12 @@ builder.Services.AddDbContext<HotelierAppContext>(options => options.UseSqlServe
 
 builder.Services.AddTransient((typeof(IGenericRepository<>)), typeof(GenericRepository<>));
 
+builder.Services.AddTransient<IAboutRepository, AboutRepository>();
+builder.Services.AddTransient<IAboutService, AboutService>();
+
+builder.Services.AddTransient<IBookingRepository, BookingRepository>();
+builder.Services.AddTransient<IBookingService, BookingService>();
+
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 

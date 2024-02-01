@@ -1,0 +1,15 @@
+﻿@model IEnumerable<ImdbListVM>
+
+<div class="d-grid">
+    <div class="row text-center">
+        @foreach (var movie in Model)
+        {
+            <div class="col-lg-3 col-md-5">
+                <span>@movie.title - @movie.rating</span>
+                <br />
+                <img src="@movie.image" />
+            </div>
+            <div class="col-lg-1 col-md-2"></div>
+        }
+    </div>
+</div>

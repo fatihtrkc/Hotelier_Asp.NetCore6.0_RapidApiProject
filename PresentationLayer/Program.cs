@@ -57,8 +57,16 @@ app.UseEndpoints(endpoints =>
     );
 });
 
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Account}/{action=SignIn}/{id?}");
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=SignIn}/{id?}");
+    pattern: "{controller=Employee}/{action=Index}/{id?}");
 
 app.Run();

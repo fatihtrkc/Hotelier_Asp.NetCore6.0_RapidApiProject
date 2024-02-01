@@ -36,22 +36,22 @@
         @await Component.InvokeAsync("_HomeServicePartial")
         <!-- Service End -->
         <!-- Testimonial Start -->
-        @await Component.InvokeAsync("_HomeTestimonialPartial")
+        @await Component.InvokeAsync("_HomeReferencePartial")
         <!-- Testimonial End -->
         <!-- Team Start -->
         @await Component.InvokeAsync("_HomeTeamPartial")
         <!-- Team End -->
-        <!-- Newsletter Start -->
-        @await Component.InvokeAsync("_HomeNewsletterPartial")
-        <!-- Newsletter End -->
+        <!-- Subscribe Start -->
+        @await Html.PartialAsync("/Views/Home/_SubscribePartial.cshtml")
+        <!-- Subscribe End -->
         <!-- Footer Start -->
-        @await Html.PartialAsync("/Views/Home/FooterPartial.cshtml")
+        @await Html.PartialAsync("/Views/Home/_FooterPartial.cshtml")
         <!-- Footer End -->
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
     <!-- Script Start -->
-    @await Html.PartialAsync("/Views/Home/ScriptPartial.cshtml")
+    @await Html.PartialAsync("/Views/Home/_ScriptPartial.cshtml")
     <!-- Script End -->
 </body>
 

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BookingComHotelListVM.Result>
+
+<br />
+<div class="text-center text-capitalize" style="font-family:'Comic Sans MS'">
+    <h2 style="color:skyblue;">Hotels</h2>
+    <br />
+    @using (Html.BeginForm("Index", "BookingByCity", FormMethod.Post))
+    {
+        <div class="d-flex row ">
+            <div class="col-12 col-lg-6">
+                <label>Enter your city Id</label>
+            </div>
+            <div class="col-12 col-lg-6">
+                <input type="text" class="form-control" name="cityId" />
+            </div>
+            <br />
+            <br />
+            <div>
+                <button type="submit" class="btn btn-outline-success form-control">Find Hotels</button>
+            </div>
+        </div>
+    }
+    <br />
+    @if (Model is not null)
+    {
+        <table class="table table-striped table-light table-bordered table-hover" style="box-sizing:border-box; border:solid 5px">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                    <th>Processes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var hotels in Model)
+                {
+                    <tr>
+                        <th>@hotels.id</th>
+                        <td>@hotels.name</td>
+                        <td>@hotels.reviewScore</td>
+                        <td><a href="~/BookingComHotel/Detail/@hotels.id" class="btn btn-rounded btn-outline-success col-6">Details</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

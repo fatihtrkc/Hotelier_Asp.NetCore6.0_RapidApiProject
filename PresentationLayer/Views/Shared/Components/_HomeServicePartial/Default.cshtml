@@ -1,10 +1,28 @@
-﻿<div class="container-xxl py-5">
+﻿@model IEnumerable<ServiceListVM>
+
+<div class="container-xxl py-5" id="services">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>
             <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Services</span></h1>
         </div>
         <div class="row g-4">
+
+            @foreach (var service in Model)
+            {
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a class="service-item rounded" href="">
+                        <div class="service-icon bg-transparent border rounded p-1">
+                            <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                <i class="@service.Icon"></i>
+                            </div>
+                        </div>
+                        <h5 class="mb-3">@service.Name - @service.CreationDate.ToShortDateString()</h5>
+                        <p class="text-body mb-0">@service.Description</p>
+                    </a>
+                </div>
+            }
+
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <a class="service-item rounded" href="">
                     <div class="service-icon bg-transparent border rounded p-1">
@@ -24,17 +42,6 @@
                         </div>
                     </div>
                     <h5 class="mb-3">Food & Restaurant</h5>
-                    <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <a class="service-item rounded" href="">
-                    <div class="service-icon bg-transparent border rounded p-1">
-                        <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                            <i class="fa fa-spa fa-2x text-primary"></i>
-                        </div>
-                    </div>
-                    <h5 class="mb-3">Spa & Fitness</h5>
                     <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                 </a>
             </div>

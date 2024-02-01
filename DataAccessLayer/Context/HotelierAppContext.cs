@@ -10,8 +10,10 @@ namespace DataAccessLayer.Context
         {
         }
 
+        public DbSet<About> Abouts { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Service> Services { get; set; }
