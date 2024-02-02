@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataAccessLayer.Configuration
 {
-    internal class BookingConfig : IEntityTypeConfiguration<Booking>
+    public class BookingConfig : IEntityTypeConfiguration<Booking>
     {
         public void Configure(EntityTypeBuilder<Booking> builder)
         {

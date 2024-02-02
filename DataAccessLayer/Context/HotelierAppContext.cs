@@ -14,6 +14,8 @@ namespace DataAccessLayer.Context
         public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Service> Services { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace EntityLayer.Abstract
 {
-    public class BaseEntity : IBaseEntity
+    public abstract class BaseEntity : IBaseEntity
     {
         public BaseEntity() 
         {

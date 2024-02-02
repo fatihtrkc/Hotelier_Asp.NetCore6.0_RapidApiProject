@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataAccessLayer.Configuration
 {
-    public class RoomConfig : IEntityTypeConfiguration<Room>
+    public class CustomerConfig : IEntityTypeConfiguration<Customer>
     {
-        public void Configure(EntityTypeBuilder<Room> builder)
+        public void Configure(EntityTypeBuilder<Customer> builder)
         {
         }
     }

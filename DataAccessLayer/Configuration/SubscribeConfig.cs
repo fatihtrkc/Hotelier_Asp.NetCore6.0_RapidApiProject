@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataAccessLayer.Configuration
 {
-    internal class SubscribeConfig : IEntityTypeConfiguration<Subscribe>
+    public class SubscribeConfig : IEntityTypeConfiguration<Subscribe>
     {
         public void Configure(EntityTypeBuilder<Subscribe> builder)
         {

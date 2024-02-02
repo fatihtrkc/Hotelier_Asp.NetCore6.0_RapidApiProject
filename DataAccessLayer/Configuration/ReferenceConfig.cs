@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DataAccessLayer.Configuration
 {
-    internal class ReferenceConfig : IEntityTypeConfiguration<Reference>
+    public class ReferenceConfig : IEntityTypeConfiguration<Reference>
     {
         public void Configure(EntityTypeBuilder<Reference> builder)
         {

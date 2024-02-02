@@ -24,6 +24,9 @@ builder.Services.AddTransient<IAboutService, AboutService>();
 builder.Services.AddTransient<IBookingRepository, BookingRepository>();
 builder.Services.AddTransient<IBookingService, BookingService>();
 
+builder.Services.AddTransient<IContactRepository, ContactRepository>();
+builder.Services.AddTransient<IContactService, ContactService>();
+
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 

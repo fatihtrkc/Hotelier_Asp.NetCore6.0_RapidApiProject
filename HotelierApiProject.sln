@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapiApi", "RapiApi", "{2E78
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RapidApi.Consume", "RapidApi.Consume\RapidApi.Consume.csproj", "{4A19E3FA-A934-4BB4-8C76-33F694C483E6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JsonWebToken", "JsonWebToken", "{1B51C41A-A1E2-4A8B-8BF8-DDFF84B5D98D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonWebToken.WebApi", "JsonWebToken\JsonWebToken.WebApi\JsonWebToken.WebApi.csproj", "{0E543660-478F-4C79-9A38-397AF406CD43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,12 +57,17 @@ Global
 		{4A19E3FA-A934-4BB4-8C76-33F694C483E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A19E3FA-A934-4BB4-8C76-33F694C483E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A19E3FA-A934-4BB4-8C76-33F694C483E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E543660-478F-4C79-9A38-397AF406CD43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E543660-478F-4C79-9A38-397AF406CD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E543660-478F-4C79-9A38-397AF406CD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E543660-478F-4C79-9A38-397AF406CD43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4A19E3FA-A934-4BB4-8C76-33F694C483E6} = {2E78E322-26E7-4A4C-B086-16222FEEBB09}
+		{0E543660-478F-4C79-9A38-397AF406CD43} = {1B51C41A-A1E2-4A8B-8BF8-DDFF84B5D98D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB667541-2B28-4447-91C6-21DE456652B2}

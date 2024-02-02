@@ -1,6 +1,5 @@
 ﻿using BusinessLayer.Services.Abstract;
 using DtoLayer.EmployeeDtos;
-using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers

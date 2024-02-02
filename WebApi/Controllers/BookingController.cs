@@ -61,7 +61,7 @@ namespace WebApi.Controllers
             if (ModelState.IsValid)
             {
                 bool isUpdated = await bookingService.UpdateAsync(bookingUpdateDto);
-                if (isUpdated) return Ok($"{bookingUpdateDto.FullName}, your booking was updated successfully !");
+                if (isUpdated) return Ok($"{bookingUpdateDto.Id}, your booking was updated successfully !");
 
                 return BadRequest("Booking is not updated !");
             }
