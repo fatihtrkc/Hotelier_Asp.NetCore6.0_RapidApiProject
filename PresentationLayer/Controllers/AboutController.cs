@@ -69,7 +69,7 @@ namespace PresentationLayer.Controllers
         //public async Task<IActionResult> Delete(int id)
         {
             var client = httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:7254/api/About/GetBy/{aboutId}");
+            var responseMessage = await client.DeleteAsync($"https://localhost:7254/api/About/Delete/{aboutId}");
             if (responseMessage.IsSuccessStatusCode) return RedirectToAction("Index");
             return RedirectToAction("Index", "NotFound");
         }

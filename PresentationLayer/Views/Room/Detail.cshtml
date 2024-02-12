@@ -1,0 +1,87 @@
+﻿@model RoomDetailVM
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-8">
+
+        <h6 class="mb-3" style="font-family:'Comic Sans MS'; font-size:20px; font-weight:bold; color:indigo;">Room Detail</h6>
+
+    </div>
+
+</div>
+<hr />
+
+<div class="form-group row" style="font-family:'Comic Sans MS'; text-transform:capitalize;">
+    <div class="d-flex">
+        <div class="justify-content-center align-items-center">
+            <h2>@Model.CreationDate</h2>
+            <br />
+            <img src="@Model.CoverImage" />
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="No" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;No</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.No</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="Title" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Title</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.Title</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="Type" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Room Type</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.Type</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="Price" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Price</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.Price</label>
+        </div>
+    </div>
+    <div class="row col-12">
+        <div class="col-4">
+            <label asp-for="Description" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Description</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.Description</label>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="form-group row" style="font-family:'Comic Sans MS'; text-transform:capitalize;">
+    <label class="control-label">&nbsp;&nbsp;<a asp-action="Index" style="font-size:16px; font-weight:bold; color:indigo; text-decoration:underline">Back to Rooms</a></label>
+</div>

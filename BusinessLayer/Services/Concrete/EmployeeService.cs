@@ -35,11 +35,11 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> DeleteAsync(Employee entity)
+        public async Task<bool> DeleteAsync(Employee employee)
         {
             try
             {
-                bool isDeleted = await employeeRepository.DeleteAsync(entity);
+                bool isDeleted = await employeeRepository.DeleteAsync(employee);
                 if (isDeleted) return await unitOfWork.SaveChangesAsync();
                 return false;
             }

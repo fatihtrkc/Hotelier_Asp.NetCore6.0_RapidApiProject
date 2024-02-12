@@ -1,0 +1,64 @@
+﻿@model RoomUpdateVM
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-8">
+
+        <h6 class="mb-3" style="font-family:'Comic Sans MS'; font-size:20px; font-weight:bold; color:indigo;">Room Update</h6><span class="text-danger" style="text-transform:lowercase; font-family:'Comic Sans MS'">(* required field)</span>
+
+    </div>
+
+</div>
+<hr />
+
+<form method="post" class="container-fluid py-4" enctype="multipart/form-data" style="font-family:'Comic Sans MS'; text-transform:capitalize; text-align:center;">
+    <div asp-validation-summary="All" class="text-warning"></div>
+    <input asp-for="No" type="hidden" />
+    <div class="form-group row">
+        <div class="col-12">
+            <label asp-for="CoverImage" class="control-label" style="text-align:start; font-size:16px; font-weight:bold; color:indigo;">Image <span class="text-danger">*</span></label>
+            <input asp-for="CoverImage" class="btn btn-outline-secondary btn-block" type="file" accept=".jpg,.png,.jpeg" placeholder="Enter room image" required />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-4">
+            <label asp-for="Title" class="control-label" style="text-align:start; font-size:16px; font-weight:bold; color:indigo;">Title <span class="text-danger">*</span></label>
+            <input asp-for="Title" class="btn btn-outline-secondary btn-block" style="cursor:text" placeholder="Enter room title" required />
+        </div>
+        <div class="col-4">
+            <label asp-for="Type" class="control-label" style="text-align:start; font-size:16px; font-weight:bold; color:indigo;">Room Type <span class="text-danger">*</span></label>
+            <select asp-items="Html.GetEnumSelectList<RoomType>()" asp-for="Type" class="btn btn-outline-secondary btn-block" style="cursor:text" placeholder="Enter room type" required></select>
+        </div>
+        <div class="col-4">
+            <label asp-for="Price" class="control-label" style="text-align:start; font-size:16px; font-weight:bold; color:indigo;">Price <span class="text-danger">*</span></label>
+            <input asp-for="Price" class="btn btn-outline-secondary btn-block" style="cursor:text" type="number" min="0" placeholder="Enter room price" required />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-12">
+            <label asp-for="Description" class="control-label" style="text-align:start; font-size:16px; font-weight:bold; color:indigo;">Description <span class="text-danger">*</span></label>
+            <input asp-for="Description" class="btn btn-outline-secondary btn-block" style="cursor:text" placeholder="Enter room description" required />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-6">
+            <input type="submit" value="Service Update" class="btn btn-outline-success btn-block" />
+        </div>
+        <div class="col-6">
+            <a asp-action="Index" class="btn btn-outline-warning btn-block" title:"Go to Rooms">Cancel</a>
+        </div>
+    </div>
+</form>
+
+<script src="~/js/intlTelInput.js"></script>
+
+<script>
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {});
+</script>
+

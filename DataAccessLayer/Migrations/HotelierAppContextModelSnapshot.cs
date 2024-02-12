@@ -60,7 +60,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValue(new Guid("ac653ce7-ac75-49f1-91ef-a0f69f4bb4de"));
+                        .HasDefaultValue(new Guid("1f336ddb-c33b-4c2e-8025-5972cd980681"));
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -92,7 +92,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
-                        .HasDefaultValue(new Guid("25473302-ac93-4c5f-aeca-da503f84c6ba"));
+                        .HasDefaultValue(new Guid("ff9724bc-47ca-405f-9dd6-6d75464bbaad"));
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -218,8 +218,11 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.Contact", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");

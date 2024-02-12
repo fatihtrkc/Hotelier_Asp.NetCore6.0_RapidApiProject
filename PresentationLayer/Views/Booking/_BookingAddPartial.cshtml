@@ -29,31 +29,31 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input asp-for="FullName" type="text" class="form-control" id="name" placeholder="Enter your full name">
+                                    <input asp-for="FullName" type="text" class="form-control" id="name" placeholder="Enter your full name" required />
                                     <label asp-for="FullName" class="text-center text-capitalize">Name Surname <span class="text-danger">*</span></label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input asp-for="Email" type="email" class="form-control" id="email" placeholder="Enter your email">
+                                    <input asp-for="Email" type="email" class="form-control" id="email" placeholder="Enter your email" required />
                                     <label asp-for="Email" class="text-center text-capitalize">Email <span class="text-danger">*</span></label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating date" id="date3" data-target-input="nearest">
-                                    <input asp-for="ChechIn" type="datetime-local" class="form-control datetimepicker-input" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" />
+                                    <input asp-for="ChechIn" type="datetime-local" class="form-control datetimepicker-input" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" required />
                                     <label asp-for="ChechIn" class="text-center text-capitalize">Check In <span class="text-danger">*</span></label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating date" id="date4" data-target-input="nearest">
-                                    <input asp-for="ChechOut" type="datetime-local" class="form-control datetimepicker-input" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" />
+                                    <input asp-for="ChechOut" type="datetime-local" class="form-control datetimepicker-input" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" required />
                                     <label asp-for="ChechOut" class="text-center text-capitalize">Check Out <span class="text-danger">*</span></label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select asp-for="AdultCount" class="form-select" id="select1">
+                                    <select asp-for="AdultCount" class="form-select" id="select1" required>
                                         @for (int i = 1; i <= 10; i++)
                                         {
                                             <option value="@i">@i</option>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select asp-for="ChildCount" class="form-select" id="select2">
+                                    <select asp-for="ChildCount" class="form-select" id="select2" required>
                                         @for (int i = 0; i <= 10; i++)
                                         {
                                             <option value="@i">@i</option>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <select asp-items="Html.GetEnumSelectList<RoomType>()" asp-for="RoomType" class="form-select" id="select3"></select>
+                                    <select asp-items="Html.GetEnumSelectList<RoomType>()" asp-for="RoomType" class="form-select" id="select3" required></select>
                                     <label asp-for="RoomType" class="text-center text-capitalize">Select A Room <span class="text-danger">*</span></label>
                                 </div>
                             </div>

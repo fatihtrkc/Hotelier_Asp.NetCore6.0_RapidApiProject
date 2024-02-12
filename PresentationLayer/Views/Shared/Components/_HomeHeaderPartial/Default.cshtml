@@ -17,19 +17,20 @@
                     <div class="navbar-nav mr-auto py-0" style="font-family:'Comic Sans MS'">
                         <a asp-action="Index" asp-controller="Home" class="nav-item nav-link active">Home</a>
                         <a href="#about" class="nav-item nav-link">About</a>
-                        <a href="#services" class="nav-item nav-link">Services</a>
-                        <a href="#rooms" class="nav-item nav-link">Rooms</a>
-                        <div class="nav-item dropdown">
+                        <a asp-action="Index" asp-controller="Booking" class="nav-item nav-link">Booking</a>
+                        <div class="nav-item dropdown navbar-dark">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a asp-action="Index" asp-controller="Booking" class="dropdown-item">Booking</a>
+                            <div class="dropdown-menu rounded-0 m-0 text-center navbar-dark">
                                 <a href="#ourteams" class="dropdown-item">Our Team</a>
                                 <a href="#references" class="dropdown-item">References</a>
+                                <a href="#rooms" class="dropdown-item">Rooms</a>
+                                <a href="#services" class="dropdown-item">Services</a>
                             </div>
                         </div>
-                        <a href="#contact" class="nav-item nav-link">Contact</a>
+                        <a asp-action="Index" asp-controller="Contact" class="nav-item nav-link">Contact</a>
+                        <a asp-action="SignIn" asp-controller="Account" class="nav-item nav-link text-capitalize">SignIn</a>
                     </div>
-                    <div class="px-5">
+                    <div class="px-4">
                         <div class="d-inline-flex align-items-center py-2">
                             <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="me-3" href=""><i class="fab fa-twitter"></i></a>

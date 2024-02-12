@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AboutListVM>
+
+@{
+    ViewData["Title"] = "Abouts";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<table class="table table-hover zero-configuration col-12" style="font-family:'Comic Sans MS';">
+    <br />
+    <br />
+    <br />
+    <h2 class="text-center" style="color:skyblue; font-family:'Comic Sans MS'; font-size:30px;">Abouts</h2>
+    <br />
+    <thead>
+        <tr>
+            <th class="text-center">Date</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Room Count</th>
+            <th class="text-center">Employee Count</th>
+            <th class="text-center">Customer Count</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var about in Model)
+        {
+            <tr>
+                <td class="text-center">@about.CreationDate.ToShortDateString()</td>
+                <td class="text-center" title="Content : @about.Content">@about.Title</td>
+                <td class="text-center">@about.RoomCount</td>
+                <td class="text-center">@about.EmployeeCount</td>
+                <td class="text-center">@about.CustomerCount</td>
+                <td>
+                    <p class="row justify-content-center">
+                        <a href="~/About/Delete/@about.Id" class="btn btn-rounded btn-outline-danger col-4" title="Delete">Delete</a>
+                        @* <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-danger col-4" title="Delete">Delete</a> *@
+                        <a href="~/About/Update/@about.Id" class="btn btn-rounded btn-outline-warning col-4" title="@about.Title informations update">Update</a>
+                        @* <a asp-action="Update" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-warning col-4" title="@employee.FullName informations update">Update</a> *@
+                        <a href="~/About/Detail/@about.Id" class="btn btn-rounded btn-outline-success col-4" title="@about.Title informations">Details</a>
+                        @* <a asp-action="Detail" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-success col-4" title="@employee.FullName informations">Details</a> *@
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<p class="btn-rounded text-center" style="background-color:skyblue;"><a asp-action="Add" class="btn btn-rounded btn-outline-primary form-control col-12" style="font-family:'Comic Sans MS'; font-size:20px; color:white" title="Add new about">About Add</a></p>

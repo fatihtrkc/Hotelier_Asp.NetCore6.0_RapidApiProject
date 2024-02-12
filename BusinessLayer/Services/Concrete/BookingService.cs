@@ -26,7 +26,7 @@ namespace BusinessLayer.Services.Concrete
             {
                 var booking = mapper.Map<Booking>(bookingAddDto);
                 bool isAdded = await bookingRepository.AddAsync(booking);
-                if (isAdded) await unitOfWork.SaveChangesAsync();
+                if (isAdded) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
             catch

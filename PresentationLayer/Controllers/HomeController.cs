@@ -46,7 +46,7 @@ namespace PresentationLayer.Controllers
                 if (responseMessage.IsSuccessStatusCode) return RedirectToAction("Index");
                 return RedirectToAction("Index", "NotFound");
             }
-            return View(subscribeAddVM);
+            return PartialView(subscribeAddVM);
         }
     }
 }

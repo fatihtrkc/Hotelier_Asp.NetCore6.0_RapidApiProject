@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CustomerListVM>
+
+@{
+    ViewData["Title"] = "Customers";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<table class="table table-hover zero-configuration col-12" style="font-family:'Comic Sans MS';">
+    <br />
+    <br />
+    <br />
+    <h2 class="text-center" style="color:skyblue; font-family:'Comic Sans MS'; font-size:30px;">Customers</h2>
+    <br />
+    <thead>
+        <tr>
+            <th class="text-center">Id</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Surname</th>
+            <th class="text-center">City</th>
+            <th class="text-center">Register Date</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td class="text-center">@customer.Id</td>
+                <td class="text-center">@customer.Name</td>
+                <td class="text-center">@customer.Surname</td>
+                <td class="text-center">@customer.City</td>
+                <td class="text-center">@customer.CreationDate.ToShortDateString()</td>
+                <td>
+                    <p class="row justify-content-center">
+                        <a href="~/Customer/Delete/@customer.Id" class="btn btn-rounded btn-outline-danger col-4" title="Delete">Delete</a>
+                        @* <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-danger col-4" title="Delete">Delete</a> *@
+                        <a href="~/Customer/Update/@customer.Id" class="btn btn-rounded btn-outline-warning col-4" title="@customer.Name @customer.Surname informations update">Update</a>
+                        @* <a asp-action="Update" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-warning col-4" title="@employee.FullName informations update">Update</a> *@
+                        <a href="~/Customer/Detail/@customer.Id" class="btn btn-rounded btn-outline-success col-4" title="@customer.Name @customer.Surname informations">Details</a>
+                        @* <a asp-action="Detail" asp-route-id="@employee.Id" class="btn btn-rounded btn-outline-success col-4" title="@employee.FullName informations">Details</a> *@
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<p class="btn-rounded text-center" style="background-color:skyblue;"><a asp-action="Add" class="btn btn-rounded btn-outline-primary form-control col-12" style="font-family:'Comic Sans MS'; font-size:20px; color:white" title="Add new customer">Customer Add</a></p>

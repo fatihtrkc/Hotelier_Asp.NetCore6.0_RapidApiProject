@@ -26,7 +26,7 @@ namespace BusinessLayer.Services.Concrete
             {
                 var contact = mapper.Map<Contact>(contactAddDto);
                 bool isAdded = await contactRepository.AddAsync(contact);
-                if (isAdded) await unitOfWork.SaveChangesAsync();
+                if (isAdded) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
             catch

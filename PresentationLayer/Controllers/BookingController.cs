@@ -36,18 +36,18 @@ namespace PresentationLayer.Controllers
                 var responseMessage = await client.PostAsync("https://localhost:7254/api/Booking/Add", stringContent);
                 if (responseMessage.IsSuccessStatusCode) return RedirectToAction("Index");
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "NotFound");
             }
-            return View(bookingAddVM);
+            return PartialView(bookingAddVM);
         }
 
-        public PartialViewResult _SubscribePartial()
+        public PartialViewResult _BookingSubscribePartial()
         {
             return PartialView();
         }
 
         [HttpPost]
-        public async Task<IActionResult> _SubscribePartial(SubscribeAddVM subscribeAddVM)
+        public async Task<IActionResult> _BookingSubscribePartial(SubscribeAddVM subscribeAddVM)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace PresentationLayer.Controllers
 
                 return RedirectToAction("Index", "NotFound");
             }
-            return View(subscribeAddVM);
+            return PartialView(subscribeAddVM);
         }
     }
 }

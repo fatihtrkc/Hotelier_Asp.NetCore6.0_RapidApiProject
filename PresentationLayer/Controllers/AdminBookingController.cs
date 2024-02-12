@@ -1,5 +1,4 @@
-﻿using EntityLayer.Concrete;
-using EntityLayer.Enums;
+﻿using EntityLayer.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PresentationLayer.Models.ViewModels.BookingVMs;

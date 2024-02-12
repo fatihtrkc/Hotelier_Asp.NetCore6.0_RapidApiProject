@@ -1,0 +1,55 @@
+﻿@model CustomerAddVM
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+@* <link rel="stylesheet" href="~/css/demo.css">
+<link rel="stylesheet" href="~/css/intlTelInput.css"> *@
+@* <link href="~/css/nucleo-icons.css" rel="stylesheet" />
+<link href="~/css/nucleo-svg.css" rel="stylesheet" /> *@
+
+<div class="row">
+
+    <div class="col-md-8">
+
+        <h6 class="mb-3" style="font-family:'Comic Sans MS'; font-size:20px; font-weight:bold; color:indigo;">Customer Add</h6><span class="text-danger" style="text-transform:lowercase; font-family:'Comic Sans MS'">(* required field)</span>
+
+    </div>
+
+</div>
+<hr />
+
+<form asp-action="Add" method="post" class="container-fluid py-4" enctype="multipart/form-data" style="font-family:'Comic Sans MS'; text-transform:capitalize; text-align:center">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group row">
+        <div class="col-4">
+            <label asp-for="Name" class="control-label" style="text-align:start; font-size:16px; font-weight:bold; color:indigo;">Name <span class="text-danger">*</span></label>
+            <input type="text" asp-for="Name" class="btn btn-outline-secondary btn-block" style="cursor:text" required />
+        </div>
+        <div class="col-4">
+            <label asp-for="Surname" class="control-label" style="text-align:start; font-size:16px; font-weight:bold; color:indigo;">Surname <span class="text-danger">*</span></label>
+            <input type="text" asp-for="Surname" class="btn btn-outline-secondary  btn-block" style="cursor:text" required />
+        </div>
+        <div class="col-4">
+            <label asp-for="City" class="control-label" style="text-align:start; font-size:16px; font-weight:bold; color:indigo;">City <span class="text-danger">*</span></label>
+            <input type="text" asp-for="City" class="btn btn-outline-secondary  btn-block" style="cursor:text" required />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-6">
+            <input type="submit" value="Customer Add" class="btn btn-outline-success btn-block" />
+        </div>
+        <div class="col-6">
+            <a asp-action="Index" class="btn btn-outline-warning btn-block" title:"Go to Customers">Cancel</a>
+        </div>
+    </div>
+</form>
+
+<script src="~/js/intlTelInput.js"></script>
+
+<script>
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {});
+</script>

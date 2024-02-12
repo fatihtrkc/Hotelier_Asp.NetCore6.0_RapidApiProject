@@ -1,0 +1,46 @@
+﻿<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a asp-action="Index" asp-controller="Home" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h4 class="m-0 text-primary text-capitalize">Hotelier Rapid Api</h4>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                <a asp-action="Index" asp-controller="Home" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 text-primary text-capitalize" style="font-family:'Comic Sans MS'">Hotelier Rapid Api</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between text-center" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0" style="font-family:'Comic Sans MS'">
+                        <a asp-action="Index" asp-controller="Home" class="nav-item nav-link">Home</a>
+                        <a href="#about" class="nav-item nav-link">About</a>
+                        <a asp-action="Index" asp-controller="Booking" class="nav-item nav-link">Booking</a>
+                        <div class="nav-item dropdown navbar-dark">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu rounded-0 m-0 text-center navbar-dark">
+                                <a href="#ourteams" class="dropdown-item">Our Team</a>
+                                <a href="#references" class="dropdown-item">References</a>
+                                <a href="#rooms" class="dropdown-item">Rooms</a>
+                                <a href="#services" class="dropdown-item">Services</a>
+                            </div>
+                        </div>
+                        <a asp-action="Index" asp-controller="Contact" class="nav-item nav-link active">Contact</a>
+                        <a asp-action="SignIn" asp-controller="Account" class="nav-item nav-link text-capitalize">SignIn</a>
+                    </div>
+                    <div class="px-4">
+                        <div class="d-inline-flex align-items-center py-2">
+                            <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="" href=""><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

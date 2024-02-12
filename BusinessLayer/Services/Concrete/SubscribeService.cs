@@ -35,7 +35,7 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> DeleteAsync(Subscribe entity)
+        public async Task<bool> DeleteAsync(Subscribe subscribe)
         {
             try
             {

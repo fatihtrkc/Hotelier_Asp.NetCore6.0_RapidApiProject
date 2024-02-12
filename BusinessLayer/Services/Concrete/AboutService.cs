@@ -20,13 +20,13 @@ namespace BusinessLayer.Services.Concrete
             this.mapper = mapper;
         }
 
-        public async Task<bool> AddAsync(AboutAddDto entityAddDto)
+        public async Task<bool> AddAsync(AboutAddDto aboutAddDto)
         {
             try
             {
-                var about = mapper.Map<About>(entityAddDto);
+                var about = mapper.Map<About>(aboutAddDto);
                 bool isAdded = await aboutRepository.AddAsync(about);
-                if (isAdded) await unitOfWork.SaveChangesAsync();
+                if (isAdded) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
             catch
@@ -35,11 +35,11 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> DeleteAsync(About entity)
+        public async Task<bool> DeleteAsync(About about)
         {
             try
             {
-                bool isDeleted = await aboutRepository.DeleteAsync(entity);
+                bool isDeleted = await aboutRepository.DeleteAsync(about);
                 if (isDeleted) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
@@ -49,13 +49,13 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> UpdateAsync(AboutUpdateDto entityUpdateDto)
+        public async Task<bool> UpdateAsync(AboutUpdateDto aboutUpdateDto)
         {
             try
             {
-                var about = mapper.Map<About>(entityUpdateDto);
+                var about = mapper.Map<About>(aboutUpdateDto);
                 bool isUpdated = await aboutRepository.UpdateAsync(about);
-                if (isUpdated) await unitOfWork.SaveChangesAsync();
+                if (isUpdated) return await unitOfWork.SaveChangesAsync();
                 return false;
             }
             catch

@@ -51,7 +51,7 @@
                 <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid pe-0">
-                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 ">
+                        <a asp-action="Index" asp-controller="Home" class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-warning btn-outline-danger">
                             Hotelier Rapid Api
                         </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,13 +99,13 @@
                                             <div class="row">
                                                 <div class="col-12 col-xl-6 col-lg-6">
                                                     <div class="mb-3" style="text-align:center">
-                                                        <label asp-for="Name"></label>
+                                                        <label asp-for="Name">Name <span class="text-danger">*</span></label>
                                                         <input type="text" asp-for="Name" class="form-control" placeholder="Enter your name" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-xl-6 col-lg-6">
                                                     <div class="mb-3" style="text-align:center">
-                                                        <label asp-for="Surname"></label>
+                                                        <label asp-for="Surname">Surname <span class="text-danger">*</span></label>
                                                         <input type="text" asp-for="Surname" class="form-control" placeholder="Enter your surname" required>
                                                     </div>
                                                 </div>
@@ -115,13 +115,13 @@
                                             <div class="row">
                                                 <div class="col-12 col-xl-6 col-lg-6">
                                                     <div class="mb-3" style="text-align:center">
-                                                        <label asp-for="Username"></label>
+                                                        <label asp-for="Username">Username <span class="text-danger">*</span></label>
                                                         <input type="text" asp-for="Username" class="form-control" placeholder="Enter your username" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-xl-6 col-lg-6">
                                                     <div class="mb-3" style="text-align:center">
-                                                        <label asp-for="Email"></label>
+                                                        <label asp-for="Email">Email <span class="text-danger">*</span></label>
                                                         <input type="email" asp-for="Email" class="form-control" placeholder="Enter your email" required>
                                                     </div>
                                                 </div>
@@ -131,7 +131,7 @@
                                             <div class="row">
                                                 <div class="col-12 col-xl-6 col-lg-6">
                                                     <div class="mb-3" style="text-align:center">
-                                                        <label asp-for="Password"></label>
+                                                        <label asp-for="Password">Password <span class="text-danger">*</span></label>
                                                         <input type="password" asp-for="Password" class="form-control" placeholder="Enter your password" aria-label="Password" required>
                                                         <a href="#" class="form-icon-right password-show-hide btn-danger" title="Hide or show password">
                                                             <i class="mdi mdi-eye"></i>
@@ -140,7 +140,7 @@
                                                 </div>
                                                 <div class="col-12 col-xl-6 col-lg-6">
                                                     <div class="mb-3" style="text-align:center">
-                                                        <label asp-for="ConfirmPassword">Password Confirm</label>
+                                                        <label asp-for="ConfirmPassword">Password Confirm <span class="text-danger">*</span></label>
                                                         <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Enter your re-password" required>
                                                         <a href="#" class="form-icon-right password-show-hide btn-danger" title="Hide or show password">
                                                             <i class="mdi mdi-eye"></i>
@@ -153,7 +153,7 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="mb-3" style="text-align:center">
-                                                        <label asp-for="Address"></label>
+                                                        <label asp-for="Address">Address <span class="text-danger">*</span></label>
                                                         <input type="text" asp-for="Address" class="form-control" placeholder="Enter your address" required>
                                                     </div>
                                                 </div>
@@ -162,7 +162,7 @@
                                         <div class="form-check form-check-info text-left">
                                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked required>
                                             <label class="form-check-label" for="flexCheckDefault">
-                                                I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                                                I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions <span class="text-danger">*</span></a>
                                             </label>
                                         </div>
                                         <div class="text-danger" asp-validation-summary="All" style="font-size:17px"></div>

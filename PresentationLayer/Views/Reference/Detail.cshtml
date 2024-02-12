@@ -1,0 +1,93 @@
+﻿@model ReferenceDetailVM
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-8">
+
+        <h6 class="mb-3" style="font-family:'Comic Sans MS'; font-size:20px; font-weight:bold; color:indigo;">Reference Detail</h6>
+
+    </div>
+
+</div>
+<hr />
+
+<div class="form-group row" style="font-family:'Comic Sans MS'; text-transform:capitalize;">
+    <div class="d-flex">
+        <div class="justify-content-center align-items-center">
+            <img src="@Model.Image" />
+        </div>
+    </div>
+    <div class="row col-6">
+        @* <div class="col-lg-6">
+        <label asp-for="Photo" class="control-label" style="text-align:start; font-size:16px">Photo <span class="text-danger">*</span></label>
+        <input type="file" asp-for="Photo" class="form-control" accept=".jpg,.png,.jpeg" id="photo" />
+        </div> *@
+        <div class="col-4">
+            <label asp-for="Id" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Id</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.Id</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        @* <div class="col-lg-6">
+        <label asp-for="Photo" class="control-label" style="text-align:start; font-size:16px">Photo <span class="text-danger">*</span></label>
+        <input type="file" asp-for="Photo" class="form-control" accept=".jpg,.png,.jpeg" id="photo" />
+        </div> *@
+        <div class="col-4">
+            <label asp-for="Title" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Title</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.Title</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="FullName" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Full Name</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.FullName</label>
+        </div>
+    </div>
+    <div class="row col-6">
+        <div class="col-4">
+            <label asp-for="CreationDate" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Creation Date</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.CreationDate</label>
+        </div>
+    </div>
+    <div class="row col-12">
+        <div class="col-4">
+            <label asp-for="Comment" class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">&nbsp;&nbsp;Comment</label>
+        </div>
+        <div class="col-1">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:indigo;">:</label>
+        </div>
+        <div class="col-7">
+            <label class="control-label" style="font-size:16px; font-weight:bold; color:black;">@Model.Comment</label>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="form-group row" style="font-family:'Comic Sans MS'; text-transform:capitalize;">
+    <label class="control-label">&nbsp;&nbsp;<a asp-action="Index" style="font-size:16px; font-weight:bold; color:indigo; text-decoration:underline">Back to References</a></label>
+</div>

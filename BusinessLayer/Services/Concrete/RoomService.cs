@@ -35,11 +35,11 @@ namespace BusinessLayer.Services.Concrete
             }
         }
 
-        public async Task<bool> DeleteAsync(Room entity)
+        public async Task<bool> DeleteAsync(Room room)
         {
             try
             {
-                bool isDeleted = await roomRepository.DeleteAsync(entity);
+                bool isDeleted = await roomRepository.DeleteAsync(room);
                 if (isDeleted) return await unitOfWork.SaveChangesAsync();
                 return false;
             }

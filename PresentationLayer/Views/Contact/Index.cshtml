@@ -1,0 +1,40 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head Start -->
+@await Component.InvokeAsync("_ContactHeadPartial")
+<!-- Head End -->
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        @await Component.InvokeAsync("_ContactSpinnerPartial")
+        <!-- Spinner End -->
+        <!-- Header Start -->
+        @await Component.InvokeAsync("_ContactHeaderPartial")
+        <!-- Header End -->
+        <!-- Page Header Start -->
+        @await Component.InvokeAsync("_ContactPageHeaderPartial")
+        <!-- Page Header End -->
+        <!-- Contact Start -->
+        @await Html.PartialAsync("/Views/Contact/_ContactAddPartial.cshtml")
+        <!-- Contact End -->
+        <!-- Subscribe Start -->
+        @await Html.PartialAsync("/Views/Contact/_ContactSubscribePartial.cshtml")
+        <!-- Subscribe End -->
+        <!-- Footer Start -->
+        @await Component.InvokeAsync("_ContactFooterPartial")
+        <!-- Footer End -->
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    <!-- Script Start -->
+    @await Component.InvokeAsync("_ContactScriptPartial")
+    <!-- Script End -->
+</body>
+
+</html>
